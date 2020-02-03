@@ -3,7 +3,7 @@ import pandas as pd
 import re
 import nltk
 
-email_df = pd.read_csv('test.csv')
+email_df = pd.read_csv('emails.csv')
 
 #print(email_df.head())
 splitter = re.compile('[^.!?]*[\w]\s*[.!?]')
@@ -107,7 +107,7 @@ def detect(sen):
         
     return "Dummy"
 email_df['State']=email_df['message'].apply(lambda x : detect(x))                                        
-email_df.to_csv('email_classify.csv')
+email_df.to_csv('./outputs/email_classify.csv')
 print('\n\n\n\n============== Summary ====================\n')
 precission=(tp)/(tp+fp)
 recall=(tp)/(tp+fn)
