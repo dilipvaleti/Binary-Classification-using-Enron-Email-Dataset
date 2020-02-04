@@ -41,3 +41,4 @@ main.py : Python Code to find out the list of actionable sentences and classify 
 
 
     4) Explain the challenges you've faced while building the model.
+I faced much more challenges while finding the actionable sentences in the email data set by using heuristics-based linguistic model, i.e identifying verb patterns for sentence maching and pos tagging etc. 
