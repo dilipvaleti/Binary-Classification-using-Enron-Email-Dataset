@@ -27,3 +27,17 @@ example: "Please create an assignment and forward it by EOD"
 ./email_classify.csv : save a new CSV file having a classified email data set
 main.py : Python Code to find out the list of actionable sentences and classify the emails under Action/Dummy classes.
 ```
+
+##    1) Explain your project pipeline.
+      By using main.py module we are going to findout the actionalbe sentences in the given enron data set. Export teh result data set  into one excel file which will be used as a input data set for model preparation model.py
+    2) Explain in detail the process of feature extraction.  
+      Once the dataset ready with two clases (Action, Dummy) which was generated from main.py module, we just clean teh data by removing the punctuatuions, stopwords, tokenization, stemming and finnaly each email was converted to a verctor by using TF-IDF. 
+    3) Report Recall, precision, and F1 measure
+    Classification report :
+               precision    recall  f1-score   
+
+      Action       0.86      0.79      0.82       
+       Dummy       0.81      0.89      0.85      
+
+
+    4) Explain the challenges you've faced while building the model.
