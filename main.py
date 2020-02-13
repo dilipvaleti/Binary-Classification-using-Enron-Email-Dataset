@@ -115,7 +115,7 @@ def main(email_df,dec_sent):
     print('Precision :', precission)
     print('Recall :', recall)
     print('F1 score : ',F1)
-    save_results = open('./outputs/save_results.txt','a+')
+    save_results = open('./save_results.txt','a+')
     actionable_sentences+=len(sentences)
     print('Results Saved for ' + str(len(sentences)) + ' lines.')
     results = '\n'.join(sentences)
