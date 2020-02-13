@@ -8,7 +8,9 @@ from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from scipy import spatial
-
+import numpy as np
+import string
+import nltk
 
 # ## Reading the data actionalble sentences 
 
@@ -39,12 +41,6 @@ df['clean']=df['tocken'].apply(lambda x : sen(x))
 
 
 # ## loading the email data set
-
-import pandas as pd
-import numpy as np
-import re
-import string
-import nltk
 emails=pd.read_csv('emails.csv',nrows=100)
 
 
@@ -86,9 +82,6 @@ def map_to_list(emails, key):
 email_df = pd.DataFrame(parse_into_emails(emails.message))
 email_data=pd.concat([email_df['body']],axis=1)
 
-
-
-
 #data cleaning
 stopwords = nltk.corpus.stopwords.words('english')
 ps = nltk.PorterStemmer()
@@ -108,9 +101,6 @@ list(v.toarray()[0])'''
 
 
 # ## preparing the TF-IDF vector
-
-
-
 tfidf = TfidfVectorizer()
 dd=tfidf.fit_transform(df['clsen'])
 Action_df=pd.DataFrame(dd.toarray())
