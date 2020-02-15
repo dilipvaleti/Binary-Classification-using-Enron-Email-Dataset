@@ -11,7 +11,7 @@ from scipy import spatial
 import numpy as np
 import string
 import nltk
-
+import pickle
 # ## Reading the data actionalble sentences 
 
 
@@ -39,10 +39,8 @@ df['tocken']=df['Dialogue'].apply(lambda x : cleaning(x))
 df['tocken']=df['tocken'].apply(lambda x :x[0])
 df['clean']=df['tocken'].apply(lambda x : sen(x))
 
-
 # ## loading the email data set
-emails=pd.read_csv('emails.csv',nrows=100)
-
+emails=pd.read_csv('emails.csv')
 
 def parse_into_emails(messages):
     emails = [parse_raw_message(message) for message in messages]
@@ -92,17 +90,17 @@ def clean_text(text):
     return text
 
 email_data['clean_body']=email_data['body'].apply(lambda x : clean_text(x))
-email_data['clean_senntence']=email_data['clean_body'].apply(lambda x : sen(x))
+email_data['clean_sentence']=email_data['clean_body'].apply(lambda x : sen(x))
 
 '''a=email_data['body'][1]
 print(a.split())
 v=tfidf.transform([a])
 list(v.toarray()[0])'''
 
-
 # ## preparing the TF-IDF vector
 tfidf = TfidfVectorizer()
-dd=tfidf.fit_transform(df['clsen'])
+tfidf_frame=tfidf.fit(df['clean'])
+dd=tfidf_frame.transform(df['clean'])
 Action_df=pd.DataFrame(dd.toarray())
 
 
@@ -130,6 +128,12 @@ def cosin(para):
     return 'Dummy'
 
 
-email_data['state']=email_data['body'].apply(lambda x : cosin(x))
-email_data.to_csv('Result.csv')
+email_data['state']=email_data['clean_sentence'].apply(lambda x : cosin(x))
+email_state_finder=pd.concat([emails['file'],emails['message'],email_data['state']],axis=1)
+email_state_finder.to_csv('Result.csv')
+with open('tfidf_vec.txt', 'wb') as fh:
+   pickle.dump(dd, fh)
+with open('tfidf_frame.txt', 'wb') as fh:
+   pickle.dump(tfidf_frame, fh)
+
 
