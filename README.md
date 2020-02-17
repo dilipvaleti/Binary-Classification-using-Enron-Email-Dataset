@@ -1,6 +1,9 @@
 # Binary-Classification-using-Enron-Email-Dataset
 we are going to prepare a binary classification model using Enron Email Dataset.
 
+Requirement installation
+pip install -r requirements.txt
+
 # Enron Email Dataset
 
 Kaggle Dataset Containing Emails and other meta-information
