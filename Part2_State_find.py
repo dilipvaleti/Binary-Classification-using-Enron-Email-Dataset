@@ -40,7 +40,7 @@ df['tocken']=df['tocken'].apply(lambda x :x[0])
 df['clean']=df['tocken'].apply(lambda x : sen(x))
 
 # ## loading the email data set
-emails=pd.read_csv('emails.csv')
+emails=pd.read_csv('emails.csv',nrows=100)
 
 def parse_into_emails(messages):
     emails = [parse_raw_message(message) for message in messages]
@@ -130,7 +130,7 @@ def cosin(para):
 
 email_data['state']=email_data['clean_sentence'].apply(lambda x : cosin(x))
 email_state_finder=pd.concat([emails['file'],emails['message'],email_data['state']],axis=1)
-email_state_finder.to_csv('Result.csv')
+email_state_finder.to_csv('Part2_Result.csv')
 with open('tfidf_vec.txt', 'wb') as fh:
    pickle.dump(dd, fh)
 with open('tfidf_frame.txt', 'wb') as fh:
