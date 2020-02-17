@@ -47,7 +47,16 @@ def main(email_df,dec_sent):
     tp = 0
     fp = 0
     fn = 0
-
+    
+    '''VB verb, base form take
+    VBD verb, past tense took
+    VBG verb, gerund/present participle taking
+    VBN verb, past participle taken
+    VBP verb, sing. present, non-3d take
+    VBZ verb, 3rd person sing. present takes
+    MD modal could, will
+    WP wh-pronoun who, what'''
+    
     pos_dict = {'MD':'1','VB':'2','VBG':'2','VBN':'2','VBP':'2','VBZ':'2','WP':'3'}
     patterns = ['142','12','32','342','242']
 
