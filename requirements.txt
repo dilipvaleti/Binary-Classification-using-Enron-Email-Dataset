@@ -1,5 +1,5 @@
 spacy==2.0.16
-nltk==3.3
+nltk==3.4.5
 sklearn==0.0
 scipy==1.4.1
 numpy==1.16.4
