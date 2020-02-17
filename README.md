@@ -26,7 +26,6 @@ example: "Please create an assignment and forward it by EOD"
 
 ```
 .email.csv : Email Data set is not uploading on github. You can download directly from Kaggle Link provided above.
-./outputs/ : Save the output in this folder
 ./email_classify.csv : save a new CSV file having a classified email data set
 main.py : Python Code to find out the list of actionable sentences and classify the emails under Action/Dummy classes.
 ```
