@@ -31,9 +31,10 @@ main.py : Python Code to find out the list of actionable sentences and classify 
 ```
 
 ###    1) Explain your project pipeline.
+      ** Before rinng part1, make sure that emails.csv was there in the current repository**
       By using Part1_main.py module we are going to findout the actionalbe sentences by using Heuristic methodology in the given enron data set. Export the result dataset  into one excel file(email_classify.csv) which will be used as a input data set for model preparation part1_model.py.
-      By using Part2_State_find.py, we are goinf the clasify the emails in the Enron data set whether they are actionable or not w.r.t the action sentences avaible in the given action.csv  file.
-      By using part2_model_cosine.py, we can get the instance result(Action/Dummy) at CLI when if we give the email as input at CLI.
+      By using Part2_1_State_find.py, we are goinf the clasify the emails in the Enron data set whether they are actionable or not w.r.t the action sentences avaible in the given action.csv  file.
+      By using part2_2_model_cosine.py, we can get the instance result(Action/Dummy) at CLI when if we give the email as input at CLI.
       
 ###    2) Explain in detail the process of feature extraction.  
       Once the dataset ready with two clases (Action, Dummy) which was generated from main.py module, we just clean teh data by removing the punctuatuions, stopwords, tokenization, stemming and finnaly each email was converted to a verctor by using TF-IDF. 
